@@ -73,7 +73,6 @@ function displayItems() {
 
 
     for (const item of items) {
-        console.log(item);
         const itemEl = renderItem(item);
         itemList.append(itemEl);
 
