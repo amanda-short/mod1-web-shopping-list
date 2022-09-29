@@ -31,8 +31,8 @@
 
 <body>
     <header class="page-header">
-        <img class="logo" src="/assets/html_css_js.png" alt="logo">
-        <p class="title">Supabase Web App</p>
+        <img class="logo" src="./assets/basket.jpeg" alt="logo">
+        <p class="title">Shopping List</p>
         <nav>
             <a href="/">Home</a>
             <a id="sign-out-link" href="auth">Sign Out</a>
@@ -40,6 +40,30 @@
     </header>
 
     <main>
+        <form id="add-item-form">
+            <input name="item" required placeholder="item">
+            <button>Add</button>
+        </form>
+
+        <div class="container">
+            <button id="remove-button">🗑 Remove All Purchased Items</button>
+            <p id="error-display" class="error"></p>
+        </div>
+
+        <div class="container">
+            <p>Click to cross off the list</p>
+            <ul id="item-list">
+                <li>
+                    <p>Eggs</p>
+                </li>
+                <li>
+                    <p>Bread</p>
+                </li>
+                <li>
+                    <p>Apples</p>
+                </li>
+            </ul>
+        </div>
 
     </main>
 

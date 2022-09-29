@@ -27,3 +27,11 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+
+export async function createItem(item) {
+    return await client.from('lists').insert(item).single();
+}
+
+export async function getItems() {
+    return await client.from('lists').select('*').order('created_at');
+}
