@@ -5,6 +5,7 @@ import {
     createItem,
     getItems, 
     boughtItems,
+    deleteBoughtItems,
 } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
@@ -56,9 +57,17 @@ addItemForm.addEventListener('submit', async (e) => {
     }
 });
 
-
-
-
+removeButton.addEventListener('click', async () => {
+    const response = await deleteBoughtItems();
+    console.log(removeButton);
+    error = response.error;
+    if (error) {
+        displayError();
+    } else {
+        items = [];
+        displayItems();
+    }
+});
 
 /* Display Functions */
 function displayError() {
@@ -71,7 +80,6 @@ function displayError() {
 
 function displayItems() {
     itemList.innerHTML = '';
-
 
     for (const item of items) {
         const itemEl = renderItem(item);

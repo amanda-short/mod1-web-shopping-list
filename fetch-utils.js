@@ -43,3 +43,12 @@ export async function boughtItems(id) {
         .eq('id', id)
         .single();
 }
+
+export async function deleteBoughtItems() {
+    // const user = getUser(); UNNEEDED state already in app.js
+    return await client
+        .from('lists')
+        .delete()
+        .match({ bought: true });
+        // .eq('user_id', user.id);
+}        
