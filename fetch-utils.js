@@ -36,10 +36,10 @@ export async function getItems() {
     return await client.from('lists').select('*').order('created_at');
 }
 
-export async function boughtItems(item) {
+export async function boughtItems(id) {
     return await client
         .from('lists')
         .update({ bought: true })
-        .eq('item', item)
+        .eq('id', id)
         .single();
 }

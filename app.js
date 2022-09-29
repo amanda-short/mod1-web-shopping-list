@@ -4,6 +4,7 @@ import './auth/user.js';
 import {
     createItem,
     getItems, 
+    boughtItems,
 } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
@@ -77,7 +78,7 @@ function displayItems() {
         itemList.append(itemEl);
 
         itemEl.addEventListener('click', async () => {
-            const response = await getItems(item.id);
+            const response = await boughtItems(item.id);
             error = response.error;
             const updatedItem = response.data;
 
