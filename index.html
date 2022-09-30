@@ -35,26 +35,41 @@
         <img class="logo" src="./assets/basket.jpeg" alt="logo">
         <p class="title">Shopping List</p>
         <nav>
-            <a href="/">Home</a>
+            <a id="home-link" href="/">Home</a>
             <a id="sign-out-link" href="auth">Sign Out</a>
         </nav>
     </header>
 
     <main>
-        <form id="add-item-form">
-            <input name="item" required placeholder="item">
-            <button>Add</button>
-        </form>
-
-        <div class="container">
-            <button id="remove-button">🗑 Remove All Purchased Items</button>
-            <p id="error-display" class="error"></p>
+        <section class="input">
+            <div>
+                <form id="add-item-form">
+                <input name="item" required placeholder="item">
+                <button>Add</button>
+                </form>
+            </div>
+            <div>   
+            <label for="quantity">Choose Quantity</label>
+            <select name="quantity" id="quantity" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>   
+            </label>
         </div>
-
+        </section>
+        
         <div class="container">
-            <p>Click to cross off the list</p>
+            <p>Click item below once purchased</p>
             <ul id="item-list">
-                <li>
+                <!-- <li>
                     <p>Eggs</p>
                 </li>
                 <li>
@@ -62,8 +77,12 @@
                 </li>
                 <li>
                     <p>Apples</p>
-                </li>
+                </li> -->
             </ul>
+        </div>
+        <div class="remove-button">
+            <button id="remove-button">🗑 Remove All Items</button>
+            <p id="error-display" class="error"></p>
         </div>
 
     </main>

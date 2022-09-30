@@ -6,6 +6,7 @@ import {
     getItems, 
     boughtItems,
     deleteBoughtItems,
+    getQuantity,
 } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
@@ -18,6 +19,7 @@ const itemList = document.getElementById('item-list');
 
 /* State */
 let items = [];
+let quantity = [];
 let error = null;
 
 /* Events */
@@ -36,12 +38,26 @@ window.addEventListener('load', async () => {
     }
 });
 
+window.addEventListener('load', async () => {
+    const response = await getQuantity();
+    error = response.error;
+    quantity = response.data;
+
+    if (error) {
+        displayError();
+    }
+
+    if (quantity) {
+        displayQuantity();
+    }
+});
+
 addItemForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const formData = new FormData(addItemForm);
     const newItem = {
         item: formData.get('item'),
-        quantity: 1,
+        quantity: formData.get('quantity'),
     };
 
     const response = await createItem(newItem);
@@ -59,7 +75,6 @@ addItemForm.addEventListener('submit', async (e) => {
 
 removeButton.addEventListener('click', async () => {
     const response = await deleteBoughtItems();
-    console.log(removeButton);
     error = response.error;
     if (error) {
         displayError();
