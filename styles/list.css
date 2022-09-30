@@ -1,0 +1,25 @@
+li.bought {
+    text-decoration: line-through;
+}
+
+.input {
+    display: grid;
+    grid-template-columns: 100%;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 30% 70%;
+    padding-top: 40px;
+    padding-bottom: 100px;
+    padding-left: 10px
+    
+}
+
+#item-list {
+    list-style-type: circle;
+}
+
+main {
+    background-image: linear-gradient(white, rgb(209, 239, 220));
+}
