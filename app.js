@@ -57,7 +57,7 @@ addItemForm.addEventListener('submit', async (e) => {
         item: formData.get('item'),
         quantity: formData.get('quantity'),
     };
-console.log(newItem);
+
     const response = await createItem(newItem);
     error = response.error;
     const item = response.data;
