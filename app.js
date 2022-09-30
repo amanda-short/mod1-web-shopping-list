@@ -1,12 +1,11 @@
 /* Imports */
-// this will check if we have a user and set signout link if it exists
+
 import './auth/user.js';
 import {
     createItem,
     getItems, 
     boughtItems,
     deleteBoughtItems,
-    getQuantity,
 } from './fetch-utils.js';
 import { renderItem } from './render-utils.js';
 
@@ -19,7 +18,6 @@ const itemList = document.getElementById('item-list');
 
 /* State */
 let items = [];
-let quantity = [];
 let error = null;
 
 /* Events */
@@ -38,19 +36,19 @@ window.addEventListener('load', async () => {
     }
 });
 
-window.addEventListener('load', async () => {
-    const response = await getQuantity();
-    error = response.error;
-    quantity = response.data;
+// window.addEventListener('load', async () => {
+//     const response = await getQuantity();
+//     error = response.error;
+//     quantity = response.data;
 
-    if (error) {
-        displayError();
-    }
+//     if (error) {
+//         displayError();
+//     }
 
-    if (quantity) {
-        displayQuantity();
-    }
-});
+//     if (quantity) {
+//         displayQuantity();
+//     }
+// });
 
 addItemForm.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -59,7 +57,7 @@ addItemForm.addEventListener('submit', async (e) => {
         item: formData.get('item'),
         quantity: formData.get('quantity'),
     };
-
+console.log(newItem);
     const response = await createItem(newItem);
     error = response.error;
     const item = response.data;

@@ -39,9 +39,9 @@ export async function getItems() {
     return await client.from('lists').select('*').order('created_at');
 }
 
-export async function getQuantity() {
-    return await client.from('lists').select('*').order('created_at');
-}
+// export async function getQuantity() {
+//     return await client.from('lists').select('*').order('created_at');
+// }
 
 export async function boughtItems(id) {
     return await client
